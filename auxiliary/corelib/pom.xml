@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+
+<parent>
+    <groupId>com.vps</groupId>
+    <artifactId>auxiliary</artifactId>
+    <version>1.0-SNAPSHOT</version>
+</parent>
+
+<artifactId>corelib</artifactId>
+
+<profiles>
+    <profile>
+        <id>grandparent</id>
+        <properties>
+            <main.version>${project.parent.parent.version}</main.version>
+        </properties>
+    </profile>
+</profiles>
+
+<build>
+    <plugins>
+        <plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+
+<dependencies>
+    <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>main1</artifactId>
+    </dependency>
+</dependencies>
+
+</project>

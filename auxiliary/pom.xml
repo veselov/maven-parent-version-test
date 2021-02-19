@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+
+<parent>
+    <groupId>com.vps</groupId>
+    <artifactId>top-level</artifactId>
+    <version>5.0-SNAPSHOT</version>
+</parent>
+
+<artifactId>auxiliary</artifactId>
+<version>1.0-SNAPSHOT</version>
+<packaging>pom</packaging>
+
+<properties>
+    <!-- this works, but requires defining the version in here
+         and <parent> block
+    -->
+     <main.version>5.0-SNAPSHOT</main.version>
+ </properties>
+
+ <profiles>
+     <profile>
+         <id>parent</id>
+         <properties>
+             <!-- this doesn't work, because in corelib 
+             this doesn't point to top-level parent anymore -->
+             <main.version>${project.parent.version}</main.version>
+         </properties>
+     </profile>
+ </profiles>
+
+<modules>
+    <module>corelib</module>
+</modules>
+
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>main1</artifactId>
+            <version>${main.version}</version>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+
+</project>
